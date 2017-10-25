@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
+  resources :users
   resources :companies
   namespace :api do
     namespace :v1 do

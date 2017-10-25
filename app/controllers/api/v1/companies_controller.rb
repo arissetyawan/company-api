@@ -9,7 +9,6 @@ module Api
       def index
         @companies = Company.all
         respond_to do |format|
-          format.html { render :index }
           format.json { render :json => @companies }
         end
       end
@@ -18,25 +17,14 @@ module Api
       # GET /companies/1.json
       def show
         respond_to do |format|
-          format.html { render :show }
-          format.json { render :json => @company }
-        end
-      end
-
-      # GET /companies/new
-      def new
-        @company = Company.new
-        respond_to do |format|
-          format.html { render :show }
-          format.json { render :json => @company }
+          format.json { render :json => { company: @company} }
         end
       end
 
       # GET /companies/1/edit
       def edit
         respond_to do |format|
-          format.html { render :edit }
-          format.json { render :json => @company }
+          format.json { render :json => { company: @company} }
         end
       end
 
@@ -47,11 +35,9 @@ module Api
 
         respond_to do |format|
           if @company.save
-            format.html { redirect_to @company, notice: 'Company was successfully created.' }
-            format.json { render :show, status: :created, location: @company }
+            format.json { render :json => {company: @company}, status: 201 }
           else
-            format.html { render :new }
-            format.json { render json: @company.errors, status: :unprocessable_entity }
+            format.json { render json: {errors: @company.errors}, status: 400 }
           end
         end
       end
@@ -61,11 +47,9 @@ module Api
       def update
         respond_to do |format|
           if @company.update(company_params)
-            format.html { redirect_to @company, notice: 'Company was successfully updated.' }
-            format.json { render :show, status: :ok, location: @company }
+            format.json { render :json => {company: @company}, status: 200 }
           else
-            format.html { render :edit }
-            format.json { render json: @company.errors, status: :unprocessable_entity }
+            format.json { render json: {errors: @company.errors}, status: 400 }
           end
         end
       end
@@ -75,7 +59,6 @@ module Api
       def destroy
         @company.destroy
         respond_to do |format|
-          format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
           format.json { head :no_content }
         end
       end
@@ -83,12 +66,21 @@ module Api
       private
         # Use callbacks to share common setup or constraints between actions.
         def set_company
-          @company = Company.find(params[:id])
+          @company = Company.find_by_id(params[:id])
+          return @company if @company.present?
+
+          respond_to do |format|
+            format.json { head :no_content }
+          end
         end
 
         # Never trust parameters from the scary internet, only allow the white list through.
         def company_params
+          begin
           params.require(:company).permit(:name, :description, :total_employee, :address, :country)
+          rescue
+          {}
+          end
         end
     end
   end

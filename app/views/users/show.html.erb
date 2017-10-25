@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+    Fullname: <%= @user.fullname %><br />
+    Email: <%= @user.email %><br />
+    Token: <%= @user.token %><br />
+    
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
