@@ -1,0 +1,17 @@
+             Prefix Verb   URI Pattern                          Controller#Action
+          companies GET    /companies(.:format)                 companies#index
+                    POST   /companies(.:format)                 companies#create
+        new_company GET    /companies/new(.:format)             companies#new
+       edit_company GET    /companies/:id/edit(.:format)        companies#edit
+            company GET    /companies/:id(.:format)             companies#show
+                    PATCH  /companies/:id(.:format)             companies#update
+                    PUT    /companies/:id(.:format)             companies#update
+                    DELETE /companies/:id(.:format)             companies#destroy
+   api_v1_companies GET    /api/v1/companies(.:format)          api/v1/companies#index
+                    POST   /api/v1/companies(.:format)          api/v1/companies#create
+ new_api_v1_company GET    /api/v1/companies/new(.:format)      api/v1/companies#new
+edit_api_v1_company GET    /api/v1/companies/:id/edit(.:format) api/v1/companies#edit
+     api_v1_company GET    /api/v1/companies/:id(.:format)      api/v1/companies#show
+                    PATCH  /api/v1/companies/:id(.:format)      api/v1/companies#update
+                    PUT    /api/v1/companies/:id(.:format)      api/v1/companies#update
+                    DELETE /api/v1/companies/:id(.:format)      api/v1/companies#destroy

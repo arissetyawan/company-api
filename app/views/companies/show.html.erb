@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Company</h1>
+
+<table>
+  <tbody>
+      <tr>
+        <td>ID</td><td>:</td><td><%= @company.id %></td>
+      </tr>
+      <tr>
+        <td>Name</td><td>:</td><td><%= @company.name %></td>
+      </tr>
+      <tr>
+        <td>Address</td><td>:</td><td><%= @company.address %></td>
+      </tr>
+      <tr>
+        <td>Total employee</td><td>:</td><td><%= @company.total_employee %></td>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
