@@ -5,20 +5,6 @@ HOST: http://company-api.apiblueprint.org/
 
 Company-api is a simple API allowing consumers to view companies
 
-## Companies Collection [/companies]
-
-### List All companies [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "name": "poltek tegal",
-                "total_employee": 200,
-                "address": "tegal",
-                "country": "indonesia"
-            }
-        ]
 
 ### Create a New company [POST]
 
@@ -27,6 +13,13 @@ object containing parameter to create company
 
 + Request (application/json)
 
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+    
+    
+    + Body
 
             {
                 "name": "poltek tegal",
@@ -36,6 +29,30 @@ object containing parameter to create company
             }
 
 + Response 201 (application/json)
+
+    + Body
+
+
+            {
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
+            }
+
+## show company [/companies/:id]
+
+### This case we want to show detail of company [GET]
+
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+
++ Response 200 (application/json)
 
     + Headers
 
@@ -50,3 +67,44 @@ object containing parameter to create company
                 "address": "tegal",
                 "country": "indonesia"
             }
+
+
+
+## Companies Collection [/companies]
+
+### List All companies [GET]
+
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
+            }
+        ]
+
+## Delete company [/company/:id]
+
+### This case we want to delete company [DELETE]
+
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+
+
++ Response 204 (application/json)
