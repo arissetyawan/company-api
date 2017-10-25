@@ -1,80 +1,162 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://company-api.apiblueprint.org/
 
 # company-api
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Company-api is a simple API allowing consumers to view companies
 
-## Questions Collection [/questions]
 
-### List All Questions [GET]
+## create company [/companies ]
+
+### Create a New company [POST]
+
+You may create your own company using this action. It takes a JSON
+object containing parameter to create company
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+    
+    
+    + Body
+
+            {
+                "company":
+                {
+                    "name": "poltek tegal",
+                    "total_employee": 200,
+                    "address": "tegal",
+                    "country": "indonesia"
+                }
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+
+            {
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
+            }
+
+## show company [/companies/:id]
+
+### This case we want to show detail of company [GET]
+
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+
++ Response 200 (application/json)
+
+    + Body
+
+
+            {
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
+            }
+
+
+
+## Companies Collection [/companies]
+
+### List All companies [GET]
+
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
+
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
             }
         ]
 
-### Create a New Question [POST]
+## Delete company [/companies/2]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### This case we want to delete company [DELETE]
+
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
+    
     + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
 
-            Location: /questions/2
+
++ Response 204 (application/json)
+
+
+## update company [/companies/1]
+
+### This case we want to update detail of company [PUT]
+
++ Request (application/json)
+
+    
+    + Headers
+    
+            Token: baij28r21jlsa;jclsajajcskjsajlfaslslfsf
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "company":
+                {
+                    "name": "poltek tegal",
+                    "total_employee": 200,
+                    "address": "tegal",
+                    "country": "indonesia"
+                }
+            }
+
+
++ Response 200 (application/json)
+
+    + Body
+
+
+            {
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
+            }
+
+
+
++ Response 400 (application/json)
+
+    + Body
+
+
+            {
+                "name": "poltek tegal",
+                "total_employee": 200,
+                "address": "tegal",
+                "country": "indonesia"
             }
