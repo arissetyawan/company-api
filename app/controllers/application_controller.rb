@@ -4,9 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate
 
   def authenticate
-    if not params[:format] ==:json
-      return true 
-    end
+    return true if not params[:format] =='json'
+
     unless User.find_by_token(request.env['HTTP_TOKEN']).present?
       respond_to do |format|
         format.json { render :json =>{errors: {access: 'Not granted'}}, status: 401 }
