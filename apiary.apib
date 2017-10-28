@@ -6,7 +6,7 @@ HOST: http://company-api.apiblueprint.org/
 Company-api is a simple API allowing consumers to view companies
 
 
-## create company [/companies ]
+## create company [/api/v1/companies ]
 
 ### Create a New company [POST]
 
@@ -45,7 +45,7 @@ object containing parameter to create company
                 "country": "indonesia"
             }
 
-## show company [/companies/:id]
+## show company [/api/v1/companies/1]
 
 ### This case we want to show detail of company [GET]
 
@@ -71,7 +71,7 @@ object containing parameter to create company
 
 
 
-## Companies Collection [/companies]
+## Companies Collection [/api/v1/companies]
 
 ### List All companies [GET]
 
@@ -95,7 +95,7 @@ object containing parameter to create company
             }
         ]
 
-## Delete company [/companies/2]
+## Delete company [/api/v1/companies/2]
 
 ### This case we want to delete company [DELETE]
 
@@ -111,7 +111,7 @@ object containing parameter to create company
 + Response 204 (application/json)
 
 
-## update company [/companies/1]
+## update company [/api/v1/companies/3]
 
 ### This case we want to update detail of company [PUT]
 
